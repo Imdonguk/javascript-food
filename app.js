@@ -5,5 +5,5 @@ const port = '3000';
 
 app.listen(port, () => console.log('start server'));
 
-app.use(express.static('src'));
+app.use(express.static(__dirname));
 app.use(indexRouter);
