@@ -19,7 +19,12 @@ export default class AutoComplete {
 
         const event = {
             input: () => {
-                this._el.input.addEventListener('input', debounce(this.inputEventHandler.bind(this), timer))
+                let inputValue;
+                this._el.input.addEventListener('input', debounce(({ target }) => {
+                    if (inputValue === target.value) return;
+                    inputValue = target.value;
+                    this.inputEventHandler(inputValue)
+                }, timer))
             },
             focus: () => {
                 this._el.input.addEventListener('focus', this.focusEventHandler.bind(this))
@@ -64,10 +69,10 @@ export default class AutoComplete {
         this.resetValue();
     }
 
-    async inputEventHandler({ target }) {
+    async inputEventHandler(value) {
         if (!this._el.input.value) return this.renderRecentList()
-        if (await checkLocalItem(this.getRequestUrl(target.value))) return;
-        pipe(getLocalItem, searchListTpl, this.render.bind(this))(this.getRequestUrl(target.value))
+        if (await checkLocalItem(this.getRequestUrl(value))) return;
+        pipe(getLocalItem, searchListTpl, this.render.bind(this))(this.getRequestUrl(value))
     }
 
     mouseoverEventHandler({ target }) {
