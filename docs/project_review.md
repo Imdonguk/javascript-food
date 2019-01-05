@@ -1,4 +1,4 @@
-#Component기반 Web UI구현
+# Component기반 Web UI구현
 
 ![demo](./project_functional_demo/project_demo.gif)
 
