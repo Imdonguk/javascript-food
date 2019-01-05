@@ -1,4 +1,4 @@
-##4. MenuSlide ( 상품리스트 )
+## 4. MenuSlide ( 상품리스트 )
 
 ![menuSlide](../project_functional_demo/menuSlide.gif)
 
