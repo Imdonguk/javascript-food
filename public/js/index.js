@@ -35,7 +35,7 @@ const contentURL = {
   courseDish:
     "https://raw.githubusercontent.com/Imdonguk/javascript-food/master/data/course.json",
   autoComplete:
-    "https://raw.githubusercontent.com/Imdonguk/javascript-food/master/data/banchan.json"
+    "https://raw.githubusercontent.com/Imdonguk/javascript-food/master/data/banchan.json/"
 };
 
 const tabView = new TabView({
